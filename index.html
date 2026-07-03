@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiradi Packindo — Link Tree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-1:#0065C2;
+    --blue-2:#0049A0;
+    --ink:#202020;
+    --card-bg:#F1F2F4;
+    --card-border:#E4E6E9;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{
+    width:100%;
+    background:#ffffff;
+    font-family:'Inter', 'Lato', sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    max-width:560px;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(180deg, #eef4fb 0%, #ffffff 28%, #ffffff 100%);
+  }
+
+  /* ---------- HEADER ---------- */
+  .header{
+    padding:56px 32px 28px;
+    text-align:center;
+  }
+
+  .logo{
+    width:120px;
+    height:auto;
+    margin:0 auto 18px;
+    display:block;
+  }
+
+  .brand-name{
+    font-family:'Lato', sans-serif;
+    font-weight:600;
+    font-size:26px;
+    letter-spacing:0.5px;
+    line-height:1.15;
+    color:var(--ink);
+    text-transform:uppercase;
+  }
+
+  .find-us{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    padding:11px 26px;
+    border-radius:999px;
+    background:linear-gradient(135deg, var(--blue-1), var(--blue-2));
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    font-family:'Inter', sans-serif;
+    box-shadow:0 8px 18px rgba(0,73,160,0.28);
+  }
+
+  .find-us svg{ width:16px; height:16px; }
+
+  /* ---------- TITLE ---------- */
+  .title{
+    padding:18px 30px 8px;
+    text-align:center;
+    font-family:'Lato', sans-serif;
+    font-weight:600;
+    font-size:38px;
+    line-height:1.18;
+    color:var(--ink);
+  }
+
+  .title .accent{
+    color:var(--blue-1);
+    font-style:italic;
+    background:linear-gradient(135deg, var(--blue-1), var(--blue-2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+
+  /* ---------- CARDS GRID ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    padding:36px 30px 20px;
+  }
+
+  .card{
+    display:block;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:22px 20px;
+    text-decoration:none;
+    color:inherit;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(0,73,160,0.14);
+    border-color:#cdd8e4;
+  }
+
+  .card:active{
+    transform:translateY(0px) scale(0.98);
+  }
+
+  .icon-badge{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:16px;
+  }
+
+  .icon-badge img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    /* full white overlay */
+    filter:brightness(0) invert(1);
+  }
+
+  .card-title{
+    font-family:'Lato', sans-serif;
+    font-weight:600;
+    font-size:20px;
+    color:var(--blue-1);
+    background:linear-gradient(135deg, var(--blue-1), var(--blue-2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:8px;
+  }
+
+  .card-desc{
+    font-family:'Inter', sans-serif;
+    font-size:13.5px;
+    color:#4b5157;
+    margin-bottom:6px;
+    line-height:1.4;
+  }
+
+  .card-cta{
+    font-family:'Inter', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color:var(--ink);
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+
+  /* ---------- FOOTER IMAGE ---------- */
+  .footer-visual{
+    position:relative;
+    margin-top:24px;
+    width:100%;
+    overflow:hidden;
+  }
+
+  .footer-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0) 18%, rgba(0,73,160,0.06) 55%, var(--blue-2) 100%);
+    z-index:1;
+    pointer-events:none;
+  }
+
+  .footer-visual img{
+    display:block;
+    width:100%;
+    height:auto;
+    position:relative;
+  }
+
+  @media (max-width:420px){
+    .title{ font-size:30px; }
+    .header{ padding:44px 22px 20px; }
+    .grid{ padding:28px 18px 16px; gap:14px; }
+    .card{ padding:18px 16px; border-radius:16px; }
+    .card-title{ font-size:17px; }
+    .icon-badge{ width:38px; height:38px; }
+    .icon-badge img{ width:19px; height:19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <img class="logo" src="assets/logo.png" alt="Wiradi Packindo Logo">
+    <div class="brand-name">Wiradi<br>Packindo</div>
+    <div class="find-us">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2.2"/>
+        <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      Find Us
+    </div>
+  </header>
+
+  <!-- TITLE -->
+  <h1 class="title">
+    Wiradi Packindo:<br>
+    Solusi <span class="accent">Packaging</span> dan <span class="accent">Cutleries</span>
+  </h1>
+
+  <!-- LINK CARDS -->
+  <div class="grid">
+
+    <a class="card" href="https://www.wiradipack.com" target="_blank" rel="noopener">
+      <div class="icon-badge"><img src="assets/1-web.png" alt="Website"></div>
+      <div class="card-title">Our Website</div>
+      <div class="card-desc">Konsultasi Cepat &amp; Pemesanan</div>
+      <div class="card-cta">Klik di Sini</div>
+    </a>
+
+    <a class="card" href="https://api.whatsapp.com/send/?phone=6287770487975&text=Halo%2C+saya+tertarik+dengan+produk+Wiradi+Packindo+Mohon+info+harga+grosirnya.&type=phone_number&app_absent=0" target="_blank" rel="noopener">
+      <div class="icon-badge"><img src="assets/2-whatsapp.png" alt="WhatsApp"></div>
+      <div class="card-title">WhatsApp</div>
+      <div class="card-desc">Konsultasi Cepat &amp; Pemesanan</div>
+      <div class="card-cta">Klik di Sini</div>
+    </a>
+
+    <a class="card" href="https://www.instagram.com/wiradipack" target="_blank" rel="noopener">
+      <div class="icon-badge"><img src="assets/3-instagram.png" alt="Instagram"></div>
+      <div class="card-title">Instagram</div>
+      <div class="card-desc">Konsultasi Cepat &amp; Pemesanan</div>
+      <div class="card-cta">Klik di Sini</div>
+    </a>
+
+    <a class="card" href="https://www.tiktok.com/@wiradi_pack" target="_blank" rel="noopener">
+      <div class="icon-badge"><img src="assets/4-tiktok.png" alt="TikTok"></div>
+      <div class="card-title">TikTok</div>
+      <div class="card-desc">Konsultasi Cepat &amp; Pemesanan</div>
+      <div class="card-cta">Klik di Sini</div>
+    </a>
+
+    <a class="card" href="https://shopee.co.id/wiradipackindo" target="_blank" rel="noopener">
+      <div class="icon-badge"><img src="assets/5-shopee.png" alt="Shopee"></div>
+      <div class="card-title">Shopee</div>
+      <div class="card-desc">Konsultasi Cepat &amp; Pemesanan</div>
+      <div class="card-cta">Klik di Sini</div>
+    </a>
+
+    <a class="card" href="https://www.tokopedia.com/wiradi-pack?utm_campaign=Shop--7494972989619145191-050226&utm_source=salinlink&utm_medium=share" target="_blank" rel="noopener">
+      <div class="icon-badge"><img src="assets/6-tokopedia.png" alt="Tokopedia"></div>
+      <div class="card-title">Tokopedia</div>
+      <div class="card-desc">Konsultasi Cepat &amp; Pemesanan</div>
+      <div class="card-cta">Klik di Sini</div>
+    </a>
+
+  </div>
+
+  <!-- FOOTER PRODUCT VISUAL -->
+  <div class="footer-visual">
+    <img src="assets/product.png" alt="Wiradi Packindo Product">
+  </div>
+
+</div>
+
+</body>
+</html>
