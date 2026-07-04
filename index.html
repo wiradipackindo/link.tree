@@ -183,46 +183,22 @@
     text-underline-offset:2px;
   }
 
-  /* ---------- FOOTER IMAGE ---------- */
+ /* ---------- FOOTER IMAGE ---------- */
   .footer-visual{
     position:relative;
-    margin-top:20px;
-    padding-left:36px;
-    padding-right:36px;
+    margin-top:10px;
     width:100%;
-    overflow:hidden;
+    line-height:0;
   }
-
-  .footer-visual .img-wrap{
-    position:relative;
-    border-radius:20px 20px 0 0;
-    overflow:hidden;
-  }
-
-  .footer-visual::before{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    background:linear-gradient(180deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,0) 30%,
-      rgba(0,101,194,0.35) 55%,
-      rgba(0,73,160,0.85) 80%,
-      var(--blue-2) 100%);
-    z-index:1;
-    pointer-events:none;
-  }
-
+ 
   .footer-visual img{
     display:block;
     width:100%;
     height:auto;
-    position:relative;
+    -webkit-mask-image:linear-gradient(to top, black 0%, black 55%, transparent 100%);
+    mask-image:linear-gradient(to top, black 0%, black 55%, transparent 100%);
   }
-
+ 
   @media (max-width:420px){
     .title{ font-size:30px; }
     .header{ padding:44px 22px 20px; }
@@ -307,11 +283,9 @@
 
   <!-- FOOTER PRODUCT VISUAL -->
   <div class="footer-visual">
-    <div class="img-wrap">
-      <img src="assets/product.png" alt="Wiradi Packindo Product">
-    </div>
+    <img src="assets/product.png" alt="Wiradi Packindo Product">
   </div>
-
+ 
 </div>
 
 </body>
