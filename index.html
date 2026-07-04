@@ -36,14 +36,14 @@
 
   /* ---------- HEADER ---------- */
   .header{
-    padding:56px 32px 28px;
+    padding:40px 32px 16px;
     text-align:center;
   }
 
   .logo{
     width:120px;
     height:auto;
-    margin:0 auto 18px;
+    margin:0 auto 10px;
     display:block;
   }
 
@@ -61,8 +61,8 @@
     display:inline-flex;
     align-items:center;
     gap:10px;
-    margin-top:15px;
-    margin-bottom:10px;
+    margin-top:8px;
+    margin-bottom:0;
     padding:6px 22px 6px 6px;
     border-radius:999px;
     background:#ffffff;
@@ -89,7 +89,7 @@
 
   /* ---------- TITLE ---------- */
   .title{
-    padding:18px 30px 8px;
+    padding:10px 30px 8px;
     text-align:center;
     font-family:'Lato', sans-serif;
     font-weight:600;
@@ -151,7 +151,6 @@
     width:24px;
     height:24px;
     object-fit:contain;
-    /* full white overlay */
     filter:brightness(0) invert(1);
   }
 
@@ -201,13 +200,19 @@
   }
  
   @media (max-width:420px){
-    .title{ font-size:30px; }
-    .header{ padding:44px 22px 20px; }
-    .grid{ padding:28px 18px 16px; gap:14px; }
-    .card{ padding:18px 16px; border-radius:16px; }
-    .card-title{ font-size:17px; }
-    .icon-badge{ width:38px; height:38px; }
-    .icon-badge img{ width:19px; height:19px; }
+    .header{ padding:28px 22px 10px; }
+    .logo{ width:96px; margin-bottom:6px; }
+    .find-us{ margin-top:6px; font-size:13px; padding:5px 18px 5px 5px; }
+    .find-us .icon-circle{ width:26px; height:26px; }
+    .find-us svg{ width:13px; height:13px; }
+    .title{ font-size:22px; padding:8px 20px 6px; }
+    .grid{ padding:22px 16px 14px; gap:12px; }
+    .card{ padding:12px 8px; border-radius:14px; }
+    .card-title{ font-size:16px; margin-bottom:5px; }
+    .card-desc{ font-size:11px; margin-bottom:4px; }
+    .card-cta{ font-size:12px; }
+    .icon-badge{ width:34px; height:34px; margin-bottom:8px; }
+    .icon-badge img{ width:17px; height:17px; }
   }
 </style>
 </head>
